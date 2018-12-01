@@ -4,13 +4,13 @@ import Data.List.Split ( splitOn )
 
 main :: IO ()
 main = do
-  input1 <- ( parser . lines ) <$> readFile "Day01.input"
+  input <- ( parser . lines ) <$> readFile "Day01.input"
 
   putStr "Part1: "
-  print $ part1 input1
+  print $ part1 input
 
   putStr "Part2: "
-  print $ part2 input1
+  print $ part2 input
 
 --
 
