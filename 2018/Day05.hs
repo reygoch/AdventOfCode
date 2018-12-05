@@ -48,7 +48,7 @@ goPrev ( Cursor (p:ps) ns ) = Cursor ps ( p:ns )
 
 peek :: Word -> Cursor a -> [ a ]
 peek n ( Cursor _ []  ) = []
-peek n ( Cursor _ ns ) = take ( fromIntegral n ) ns
+peek n ( Cursor _ ns )  = take ( fromIntegral n ) ns
 
 peek2 :: Cursor a -> Maybe ( a, a )
 peek2 c = if length el == 2 then Just ( el !! 0, el !! 1 ) else Nothing
@@ -66,4 +66,4 @@ collapse :: Cursor Char -> Cursor Char
 collapse ( Cursor ps [] ) = Cursor ps []
 collapse c
   | maybe False collapsable $ peek2 c = collapse $ goPrev $ delete 2 c
-  | otherwise  = collapse $ goNext c
+  | otherwise                         = collapse $ goNext c
